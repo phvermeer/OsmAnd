@@ -25,6 +25,7 @@ import net.osmand.plus.plugins.PluginsHelper;
 import net.osmand.plus.plugins.development.OsmandDevelopmentPlugin;
 import net.osmand.plus.plugins.openseamaps.NauticalMapsPlugin;
 import net.osmand.plus.plugins.skimaps.SkiMapsPlugin;
+import net.osmand.plus.plugins.garmin.GarminPlugin;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -85,11 +86,13 @@ public class DashPluginsFragment extends DashBaseFragment {
 		List<OsmandPlugin> notFunctionalPlugins = PluginsHelper.getNotActivePlugins();
 		notFunctionalPlugins.remove(PluginsHelper.getPlugin(SkiMapsPlugin.class));
 		notFunctionalPlugins.remove(PluginsHelper.getPlugin(NauticalMapsPlugin.class));
+		notFunctionalPlugins.remove(PluginsHelper.getPlugin(GarminPlugin.class));
 		Collections.shuffle(notFunctionalPlugins);
 
 		List<OsmandPlugin> enabledPlugins = PluginsHelper.getActivePlugins();
 		enabledPlugins.remove(PluginsHelper.getPlugin(SkiMapsPlugin.class));
 		enabledPlugins.remove(PluginsHelper.getPlugin(NauticalMapsPlugin.class));
+		enabledPlugins.remove(PluginsHelper.getPlugin(GarminPlugin.class));
 
 		plugins = new ArrayList<>();
 		Iterator<OsmandPlugin> nit = notFunctionalPlugins.iterator();

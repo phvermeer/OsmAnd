@@ -130,6 +130,7 @@ public interface OsmAndCustomizationConstants {
 	String PLUGIN_OSMAND_DEV = "osmand.development";
 	String PLUGIN_AUDIO_VIDEO_NOTES = "osmand.audionotes";
 	String PLUGIN_NAUTICAL = "nauticalPlugin.plugin";
+	String PLUGIN_GARMIN = "garminPlugin.plugin";
 	String PLUGIN_OSMAND_EDITING = "osm.editing";
 	String PLUGIN_PARKING_POSITION = "osmand.parking.position";
 	String PLUGIN_RASTER_MAPS = "osmand.rastermaps";

@@ -4378,6 +4378,8 @@ Download tile maps directly, or copy them as SQLite database files to OsmAnd\'s 
 	</string>
     <string name="plugin_nautical_name">Nautical map view</string>
     <string name="plugin_nautical_descr">Enriches your map with information about sailing routes, navigation lights, nautical danger zones, zones with sailing or docking restrictions, etc. To use, download the respective Nautical maps and enable the \"Nautical map\" style under \"Configure map\". \n\nFurther reading at %1$s.</string>
+    <string name="plugin_garmin_name">Garmin Plugin</string>
+    <string name="plugin_garmin_descr">Sending tracks to Garmin devices and providing offline maps.</string>
     <string name="plugin_ski_name">Ski map view</string>
     <string name="plugin_ski_descr">Designed to navigate winter sports areas: See ski pistes and ski lifts, and cross country ski tracks, with colored lines indicating the difficulty ratings. To use, enable this plugin and also go to \"Configure map\" and choose the \"Winter and ski\" map style.</string>
     <string name="audionotes_plugin_name">Audio/video notes</string>

@@ -1,0 +1,3 @@
+[submodule "plugins/Osmand-Garmin"]
+	path = plugins/Osmand-Garmin
+	url = C:/Software/Android/Osmand-Garmin

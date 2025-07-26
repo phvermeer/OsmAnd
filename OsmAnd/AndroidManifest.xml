@@ -61,6 +61,7 @@
 		<package android:name="net.osmand.srtmPlugin.paid" />
 		<package android:name="net.osmand.skimapsPlugin" />
 		<package android:name="net.osmand.nauticalPlugin" />
+		<package android:name="net.osmand.garminPlugin" />
 
 		<package android:name="btools.routingapp" />
 		<package android:name="com.mapillary.app" />
