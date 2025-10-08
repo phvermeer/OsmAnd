@@ -4,6 +4,7 @@ import net.osmand.aidl.search.SearchResult;
 import net.osmand.aidl.gpx.AGpxBitmap;
 import net.osmand.aidl.navigation.ADirectionInfo;
 import net.osmand.aidl.navigation.OnVoiceNavigationParams;
+import net.osmand.aidl.tiles.AMapTileBitmap;
 
 interface IOsmAndAidlCallback {
 
@@ -51,4 +52,12 @@ interface IOsmAndAidlCallback {
      *  Callback for {@link IOsmAndAidlInterface} registerForVoiceRouterMessages() method.
      */
     void onVoiceRouterNotify(in OnVoiceNavigationParams params);
+
+    /**
+     *  Callback for {@link IOsmAndAidlInterface} getMapTile() method.
+     *
+     *  @return bitmap - image of tile
+     */
+    void onMapTileCreated(in AMapTileBitmap bitmap);
+
 }

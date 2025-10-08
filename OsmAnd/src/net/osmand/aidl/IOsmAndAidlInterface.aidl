@@ -98,6 +98,8 @@ import net.osmand.aidl.quickaction.QuickActionParams;
 import net.osmand.aidl.quickaction.QuickActionInfoParams;
 import net.osmand.aidl.lock.SetLockStateParams;
 
+import net.osmand.aidl.tiles.MapTileParams;
+
 // NOTE: Add new methods at the end of file!!!
 
 interface IOsmAndAidlInterface {
@@ -861,4 +863,20 @@ interface IOsmAndAidlInterface {
      * Toggle Lock/Unlock screen.
      */
     boolean setLockState(in SetLockStateParams params);
+
+    /**
+     * Requests bitmap of a map tile from x,y,z coordinates.
+     * You can set bitmap size, but you need
+     * to manually download appropriate map in OsmAnd or tile will be empty.
+     * Bitmap will be returned through callback {@link IOsmAndAidlCallback#onTileBitmapCreated(ATileBitmap)}
+     *
+     * @param x (int) - east-west index
+     * @param y (int) - north-south index
+     * @param z (int) - zoom level
+     * @param density (float) - image density. Recommended to use default metrics for device's display.
+     * @param widthPixels (int) - width of bitmap
+     * @param heightPixels (int) - height of bitmap
+     * @param callback (IOsmAndAidlCallback) - instance of callback from OsmAnd.
+     */
+    boolean getMapTile(in MapTileParams params, IOsmAndAidlCallback callback);
 }

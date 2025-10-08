@@ -5,6 +5,7 @@ import net.osmand.aidlapi.gpx.AGpxBitmap;
 import net.osmand.aidlapi.navigation.ADirectionInfo;
 import net.osmand.aidlapi.navigation.OnVoiceNavigationParams;
 import net.osmand.aidlapi.logcat.OnLogcatMessageParams;
+import net.osmand.aidlapi.tiles.AMapTileBitmap;
 
 interface IOsmAndAidlCallback {
 
@@ -62,4 +63,11 @@ interface IOsmAndAidlCallback {
      *  Callback for {@link IOsmAndAidlInterface} registerForLogcatMessages() method.
      */
     void onLogcatMessage(in OnLogcatMessageParams params);
+
+    /**
+     *  Callback for {@link IOsmAndAidlInterface} getMapTile() method.
+     *
+     *  @return bitmap - image of map tile
+     */
+    void onMapTileCreated(in AMapTileBitmap bitmap);
 }

@@ -2748,4 +2748,13 @@ public class OsmandAidlApi {
 	public interface AMapPointUpdateListener {
 		void onAMapPointUpdated(AidlMapPointWrapper point, String layerId);
 	}
+
+	boolean getMapTile(int x, int y, int z, int widthPixels,
+					   int heightPixels, MapTileCreatedCallback callback) {
+		return false;
+	}
+
+	public interface MapTileCreatedCallback {
+		void onMapTileCreatedComplete(Bitmap bitmap);
+	}
 }

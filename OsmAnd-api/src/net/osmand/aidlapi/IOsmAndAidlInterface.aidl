@@ -121,6 +121,8 @@ import net.osmand.aidlapi.exit.ExitAppParams;
 
 import net.osmand.aidlapi.logcat.ALogcatListenerParams;
 
+import net.osmand.aidlapi.tiles.MapTileParams;
+
 // NOTE: Add new methods at the end of file!!!
 
 interface IOsmAndAidlInterface {
@@ -938,4 +940,19 @@ interface IOsmAndAidlInterface {
     long registerForLogcatMessages(in ALogcatListenerParams params, IOsmAndAidlCallback callback);
 
     boolean setZoomLimits(in ZoomLimitsParams params);
+
+    /**
+     * Requests bitmap of map tile from x, y indexes and zoomlevel.
+     * You can set bitmap size, density and GPX lines color, but you need
+     * to manually download appropriate map in OsmAnd or background will be empty.
+     * Bitmap will be returned through callback {@link IOsmAndAidlCallback#onGpxBitmapCreated(AGpxBitmap)}
+     *
+     * @param x (int) - West-East index
+     * @param y (int) - North-South index
+     * @param z (int) - zoomlevel
+     * @param widthPixels (int) - width of bitmap
+     * @param heightPixels (int) - height of bitmap
+     * @param callback (IOsmAndAidlCallback) - instance of callback from OsmAnd.
+     */
+    boolean getMapTile(in MapTileParams params, IOsmAndAidlCallback callback);
 }

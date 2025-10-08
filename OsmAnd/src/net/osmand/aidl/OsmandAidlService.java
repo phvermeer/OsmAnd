@@ -24,6 +24,7 @@ import net.osmand.PlatformUtil;
 import net.osmand.aidl.OsmandAidlApi.GpxBitmapCreatedCallback;
 import net.osmand.aidl.OsmandAidlApi.OsmandAppInitCallback;
 import net.osmand.aidl.OsmandAidlApi.SearchCompleteCallback;
+import net.osmand.aidl.OsmandAidlApi.MapTileCreatedCallback;
 import net.osmand.aidl.calculateroute.CalculateRouteParams;
 import net.osmand.aidl.contextmenu.ContextMenuButtonsParams;
 import net.osmand.aidl.contextmenu.RemoveContextMenuButtonsParams;
@@ -94,7 +95,9 @@ import net.osmand.aidl.quickaction.QuickActionInfoParams;
 import net.osmand.aidl.quickaction.QuickActionParams;
 import net.osmand.aidl.search.SearchParams;
 import net.osmand.aidl.search.SearchResult;
+import net.osmand.aidl.tiles.AMapTileBitmap;
 import net.osmand.aidl.tiles.ASqliteDbFile;
+import net.osmand.aidl.tiles.MapTileParams;
 import net.osmand.data.LatLon;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.settings.backend.OsmAndAppCustomization;
@@ -1328,6 +1331,26 @@ public class OsmandAidlService extends Service implements AidlCallbackListener {
 			try {
 				OsmandAidlApi api = getApi("setLockState");
 				return api != null && api.setLockState(params.getLockState());
+			} catch (Exception e) {
+				handleException(e);
+				return false;
+			}
+		}
+
+		@Override
+		public boolean getMapTile(MapTileParams params, IOsmAndAidlCallback callback) {
+			try {
+				OsmandAidlApi api = getApi("getMapTile");
+				return params != null && api != null && api.getMapTile(params.getX(), params.getY(), params.getZ(), params.getWidthPixels(), params.getHeightPixels(), new MapTileCreatedCallback() {
+					@Override
+					public void onMapTileCreatedComplete(Bitmap bitmap) {
+						try {
+							callback.onMapTileCreated(new AMapTileBitmap(bitmap));
+						} catch (RemoteException e) {
+							handleException(e);
+						}
+					}
+				});
 			} catch (Exception e) {
 				handleException(e);
 				return false;
